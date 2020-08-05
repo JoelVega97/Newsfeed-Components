@@ -124,7 +124,7 @@ function articleMaker (dataObj){
   para1.textContent = dataObj.firstParagraph
   para2.textContent = dataObj.secondParagraph
   para3.textContent = dataObj.thirdParagraph
-  expandButton.textContent = '+'
+  expandButton.textContent = 'Read more'
 
   expandButton.addEventListener('click', function(event){
     article.classList.toggle('article-open')
