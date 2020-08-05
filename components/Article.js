@@ -86,8 +86,57 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+  title: 'Blah',
+  date: 'whatever',
+  firstParagraph: 'uh-huh',
+  secondParagraph: 'what it is',
+  thirdParagraph: 'this is an example.'
   }
 ];
+
+const articleContainer = document.querySelector('.articles')
+
+function articleMaker (dataObj){
+
+  const article = document.createElement('div')
+  const title = document.createElement ('h2')
+  const date = document.createElement ('p')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  const expandButton = document.createElement('span')
+
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(para1)
+  article.appendChild(para2)
+  article.appendChild(para3)
+  article.appendChild(expandButton)
+
+  article.className = 'article'
+  date.className = 'date'
+  expandButton.className = 'expandButton'
+
+  title.textContent = dataObj.title
+  date.textContent = dataObj.date
+  para1.textContent = dataObj.firstParagraph
+  para2.textContent = dataObj.secondParagraph
+  para3.textContent = dataObj.thirdParagraph
+  expandButton.textContent = '+'
+
+  expandButton.addEventListener('click', function(event){
+    article.classList.toggle('article-open')
+  })
+
+  return article
+}
+
+data.forEach(dataObj => {
+  const theArticle = articleMaker(dataObj)
+  articleContainer.appendChild(theArticle)
+})
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
